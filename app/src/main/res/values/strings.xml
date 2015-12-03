@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">Bandian</string>
+
+    <string name="hello_world">boot page !</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="insert_Data">插入</string>
+    <string name="update_Data">更新</string>
+    <string name="delete_Data">删除</string>
+    <string name="creat_Table">创建</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_item">ItemActivity</string>
+    <string name="about">关于</string>
+    <string name="version">版本</string>
+    <string name="begin_probar">begin</string>
+    <string name="cancel_probar">cancel</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title">標題</string>
+    <string name="enter_title">輸入標題</string>
+    <string name="content">內容</string>
+    <string name="enter_content">輸入內容</string>
+    <string name="search_item">search_item</string>
+    <string name="add_item" />
+    <string name="revert_item" />
+    <string name="prefer_item"></string>
+    <string name="delete_item" />
+    <string name="share_item" />
+    <string name="s_view_btn"></string>
+    <string name="google">google+</string>
+    <string name="Facebook">Facebook</string>
+    <string name="title_activity_color">ColorActivity</string>
+    <string name="default_color">預設的顏色</string>
+    <string name="default_color_summary">新增記事的預設顏色</string>
+    <string name="default_notify">預設提醒時間</string>
+    <string name="default_notify_summary">在指定的時間之前通知</string>
+    <string name="default_go2other">跳</string>
+
+    <string-array name="notify_minutes_array">
+        <item>五分鐘</item>
+        <item>十分鐘</item>
+        <item>二十分鐘</item>
+        <item>三十分鐘</item>
+        <item>六十分鐘</item>
+    </string-array>
+    <string-array name="notify_minutes_value_array">
+        <item>5</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>60</item>
+    </string-array>
+
+    <string name="title_activity_preference">PreferenceActivity</string>
+    <string name="title_activity_pref">PrefActivity</string>
+    <string name="title_activity_list_info">ListInfo</string>
+    <string name="title_activity_image">ImageActivity</string>
+    <string name="title_activity_custom_msg">CustomMsgAct</string>
+    <string name="title_activity_frame_layout_aty">FrameLayoutAty</string>
+    <string name="title_activity_relative_layout_aty">RelativeLayoutAty</string>
+    <string name="title_activity_open_video_audio_aty">OpenVideoAudioAty</string>
+    <string name="title_activity_android_animations_aty">AndroidAnimationsAty</string>
+    <string name="title_activity_gesture_detector_aty">GestureDetectorAty</string>
+    <string name="title_activity_layout_screen">LayoutScreen</string>
+    <string name="title_activity_cclayout1">CCLayout1</string>
+    <string name="title_activity_ex0406">EX0406</string>
+    <string name="title_activity_draw">DrawActivity</string>
+    <string name="title_activity_animal">AnimalActivity</string>
+    <string name="title_activity_boot">BootActivity</string>
+    <string name="title_activity_base">BaseActivity</string>
+    <string name="title_activity_guide">GuideActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
+
+    <string name="cube_ptr_pull_down">Pull Down</string>
+    <string name="cube_ptr_pull_down_to_refresh">Pull Down to Refresh</string>
+    <string name="cube_ptr_release_to_refresh">Release To Refresh</string>
+    <string name="cube_ptr_refreshing">Updating...</string>
+    <string name="cube_ptr_refresh_complete">Updated.</string>
+
+    <string name="cube_ptr_last_update">last update:&#160;</string>
+    <string name="cube_ptr_seconds_ago">&#160;seconds ago</string>
+    <string name="cube_ptr_minutes_ago">&#160;minutes ago</string>
+    <string name="cube_ptr_hours_ago">&#160;hours ago</string>
+    <string name="title_activity_map">MapActivity</string>
+</resources>
