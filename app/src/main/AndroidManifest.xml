@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cc.bandian"
+    android:installLocation="auto" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <application
+        android:name=".MainPage"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.cc.view.BootActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.service.TimerService"
+            android:exported="false" >
+        </service>
+
+        <activity
+            android:name="com.cc.view.AnimalActivity"
+            android:label="@string/title_activity_animal" >
+        </activity>
+        <activity
+            android:name="com.cc.view.MainActivity"
+            android:label="@string/title_activity_boot" >
+        </activity>
+
+        <!-- app end -->
+
+        <meta-data
+            android:name="CLOUD_PROTOCOL_VERSION"
+            android:value="1" />
+        <!-- baidu map -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="GP4V6ISKE7SQr3CV520FKGR1" />
+        <!-- xla -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5170c1f656240b4e870004a2" />
+
+        <!-- xla-lsfc -->
+        <!-- meta-data android:name="UMENG_APPKEY" android:value="50f7b6cb52701570fa00002e" /! -->
+
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="test" />
+
+        <activity
+            android:name="com.cc.view.GuideActivity"
+            android:label="@string/title_activity_guide" >
+        </activity>
+        <activity
+            android:name="com.cc.view.AboutActivity"
+            android:label="@string/title_activity_about" >
+        </activity>
+        <activity
+            android:name="com.cc.view.SettingActivity"
+            android:label="@string/title_activity_setting" >
+        </activity>
+        <activity
+            android:name="com.cc.view.MapActivity"
+            android:label="@string/title_activity_map" >
+        </activity>
+    </application>
+
+</manifest>
