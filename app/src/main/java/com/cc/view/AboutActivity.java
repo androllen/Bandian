@@ -10,6 +10,8 @@ import com.cc.viewmodel.AboutViewModel;
 import com.cc.viewmodel.Listener.ViewModelListener;
 
 public class AboutActivity extends Activity implements ViewModelListener{
+    private static final String TAG = "AboutActivity";
+
     private AboutViewModel vm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
