@@ -8,8 +8,10 @@ public class CCDebug {
     public CCDebug(){
     }
 
-    public static boolean DEBUG_IMAGE=true;
+    public static boolean DEBUG_IMAGE = false;
 
+
+    // print lifecycle information by log tag "cube-lifecycle"
     public static boolean DEBUG_CACHE = false;
     public static boolean DEBUG_REQUEST = false;
     public static String DEBUG_REQUEST_LOG_TAG = "cube-request";

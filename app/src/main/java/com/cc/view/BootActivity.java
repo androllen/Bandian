@@ -9,11 +9,12 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.cc.bandian.R;
-import com.cc.tool.CLog;
 import com.cc.tool.help.SharedHelper;
 import com.cc.tool.util.DisplayUtils;
 import com.cc.viewmodel.BootViewModel;
 import com.cc.viewmodel.Listener.ViewModelListener;
+
+import in.srain.cube.util.CLog;
 
 public class BootActivity extends Activity implements ViewModelListener {
 

@@ -5,7 +5,8 @@ import android.os.Bundle;
 
 import com.baidu.mapapi.map.MapView;
 import com.cc.bandian.R;
-import com.cc.tool.CLog;
+
+import in.srain.cube.util.CLog;
 
 public class MapActivity extends Activity {
     private final static String TAG = "MapActivity";

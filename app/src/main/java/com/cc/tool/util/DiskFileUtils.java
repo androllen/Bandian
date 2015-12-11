@@ -7,13 +7,12 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
 
-import com.cc.tool.CLog;
-import com.cc.tool.util.Version;
-
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.InputStream;
+
+import in.srain.cube.util.CLog;
 
 /**
  * Created by androllen on 2015/8/27.

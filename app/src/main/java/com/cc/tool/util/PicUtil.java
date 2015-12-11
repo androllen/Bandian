@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import com.cc.bandian.R;
-import com.cc.tool.CLog;
 import com.cc.tool.Const_def;
 import com.cc.tool.help.SharedHelper;
 
@@ -24,6 +23,8 @@ import android.graphics.Bitmap.CompressFormat;
 import android.graphics.Bitmap.Config;
 import android.graphics.PorterDuff.Mode;
 import android.text.TextUtils;
+
+import in.srain.cube.util.CLog;
 
 public class PicUtil {
     private static final String TAG = "PicUtil";

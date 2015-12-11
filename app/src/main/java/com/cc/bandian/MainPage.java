@@ -3,11 +3,17 @@ package com.cc.bandian;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.os.Environment;
 import android.os.Message;
 
 import com.baidu.mapapi.SDKInitializer;
+import com.cc.cache.CacheManager;
+import com.cc.cache.CacheManagerFactory;
 import com.cc.deserializer.DeserializerManager;
 import com.cc.db.DbHelper;
+import com.cc.image.ImageLoaderFactory;
+import com.cc.image.impl.DefaultImageLoadHandler;
+import com.cc.image.impl.DefaultImageReSizer;
 import com.cc.tool.CCDebug;
 import com.cc.tool.help.SharedHelper;
 import com.cc.tool.manager.NetworkStatusManager;
@@ -15,13 +21,21 @@ import com.cc.tool.util.DisplayUtils;
 import com.cc.viewmodel.InitViewModel;
 import com.cc.viewmodel.Listener.ViewModelListener;
 
+import java.io.File;
+
 /**
  * Created by androllen on 2015/8/19.
  */
 public class MainPage extends Application implements ViewModelListener {
 
     private InitViewModel vm;
-
+    private static MainPage instance=null;
+    public static MainPage getInstance(){
+        if(instance==null){
+            instance=new MainPage();
+        }
+        return instance;
+    }
 	@Override
 	public Context createConfigurationContext(
 			Configuration overrideConfiguration) {
@@ -43,6 +57,8 @@ public class MainPage extends Application implements ViewModelListener {
         //版本信息
         SharedHelper.getInstance().saveVersionInfo();
         //图片缓存
+        CacheManager.init(getApplicationContext());
+
 
         //在使用SDK各组件之前初始化context信息，传入ApplicationContext
         //注意该方法要再setContentView方法之前实现
@@ -62,8 +78,30 @@ public class MainPage extends Application implements ViewModelListener {
         vm = new InitViewModel(this);
         vm.setListener(this);
         vm.getId(0);
-    }
 
+        CacheManagerFactory.initDefaultCache(this, null, -1, -1);
+        initImageLoader();
+    }
+    private void initImageLoader() {
+
+        File path1 = Environment.getExternalStoragePublicDirectory("cube/test1/a/b/c");
+        ImageLoaderFactory.customizeCache(
+                this,
+                // memory size
+                1024 * 10,
+                // disk cache directory
+                path1.getAbsolutePath(),
+                //null,
+                // disk cache size
+                ImageLoaderFactory.DEFAULT_FILE_CACHE_SIZE_IN_KB
+        );
+
+        DefaultImageLoadHandler handler = new DefaultImageLoadHandler(this);
+        // handler.setLoadingImageColor("#999999");
+
+        ImageLoaderFactory.setDefaultImageLoadHandler(handler);
+        ImageLoaderFactory.setDefaultImageReSizer(DefaultImageReSizer.getInstance());
+    }
     @Override
     public void onLowMemory() {
         super.onLowMemory();

@@ -1,5 +1,6 @@
 package com.cc.view;
 
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -7,14 +8,19 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.cc.bandian.R;
+import com.cc.image.CubeImageView;
+import com.cc.image.ImageLoader;
+import com.cc.image.ImageLoaderFactory;
+import com.cc.image.ImageTask;
+import com.cc.image.impl.DefaultImageLoadHandler;
 import com.cc.tool.manager.ListenerManager;
 import com.cc.tool.manager.NetworkStatusManager;
 import com.cc.viewmodel.Listener.MeListener;
 
 public class MainActivity extends FragmentActivity implements MeListener{
     private final static String TAG = "MainActivity";
-    Fragment fragment1;
-    private FragmentManager fm;
+    private CubeImageView mCubeImageView;
+    private String mUrl = "http://cube-sdk.liaohuqiu.net/assets/img/qrcode.png";
 
     @Override
     public void onChanged(boolean user_changed) {
@@ -25,13 +31,17 @@ public class MainActivity extends FragmentActivity implements MeListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.aty_main);
-        fragment1 = new Fragment1();
-        fm = getSupportFragmentManager();
-        //初始化的时候需要显示一个fragment，假设我们显示第二个fragment
-        //向容器中添加或者替换fragment时必须  开启事务  操作完成后   提交事务
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.add(R.id.fl_main_container, fragment1).commit();
-//        NetworkStatusManager.getInstance().startSendReceiver();
+
+        mCubeImageView=(CubeImageView)findViewById(R.id.image_rounded_image_view1);
+        DefaultImageLoadHandler defaultImageLoadHandler = new DefaultImageLoadHandler(getApplicationContext()) {
+            @Override
+            public void onLoadFinish(ImageTask imageTask, CubeImageView imageView, BitmapDrawable drawable) {
+                super.onLoadFinish(imageTask, imageView, drawable);
+                //loadRoundedImage();
+            }
+        };
+        ImageLoader imageLoaderDefault = ImageLoaderFactory.create(getApplicationContext(), defaultImageLoadHandler);
+        mCubeImageView.loadImage(imageLoaderDefault, mUrl);
 
     }
 

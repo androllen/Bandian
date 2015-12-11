@@ -9,6 +9,8 @@ import com.cc.tool.manager.NetworkStatusManager;
 import com.cc.viewmodel.AboutViewModel;
 import com.cc.viewmodel.Listener.ViewModelListener;
 
+import in.srain.cube.util.CLog;
+
 public class AboutActivity extends Activity implements ViewModelListener{
     private static final String TAG = "AboutActivity";
 
@@ -21,6 +23,7 @@ public class AboutActivity extends Activity implements ViewModelListener{
         vm= new AboutViewModel(this);
         //注册一个viewmodel 更新UI数据
         vm.setListener(this);
+        CLog.d("","");
     }
 
     @Override
@@ -33,6 +36,11 @@ public class AboutActivity extends Activity implements ViewModelListener{
         super.onResume();
         //开始页面网络监听
         NetworkStatusManager.getInstance().startSendReceiver();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     @Override

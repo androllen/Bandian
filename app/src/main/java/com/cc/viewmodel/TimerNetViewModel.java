@@ -3,6 +3,7 @@ package com.cc.viewmodel;
 import android.content.Context;
 import android.os.Message;
 
+
 /**
  * Created by androllen on 2015/8/19.
  */
