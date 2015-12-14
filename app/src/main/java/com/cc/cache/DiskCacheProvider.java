@@ -2,11 +2,11 @@ package com.cc.cache;
 
 import android.content.Context;
 
-import com.cc.concurrent.SimpleExecutor;
-import com.cc.concurrent.SimpleTask;
-import com.cc.diskcache.CacheEntry;
-import com.cc.diskcache.DiskCache;
-import com.cc.diskcache.lru.SimpleDiskLruCache;
+import com.cc.cache.concurrent.SimpleExecutor;
+import com.cc.cache.concurrent.SimpleTask;
+import com.cc.cache.diskcache.CacheEntry;
+import com.cc.cache.diskcache.DiskCache;
+import com.cc.cache.diskcache.lru.SimpleDiskLruCache;
 
 import java.io.File;
 import java.io.IOException;

@@ -2,46 +2,53 @@ package com.cc.view;
 
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.provider.MediaStore;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.widget.ListView;
 
+import com.cc.adapter.ListViewDataAdapter;
+import com.cc.adapter.viewholders.StringSmallImageViewHolder;
 import com.cc.bandian.R;
-import com.cc.image.CubeImageView;
-import com.cc.image.ImageLoader;
-import com.cc.image.ImageLoaderFactory;
-import com.cc.image.ImageTask;
-import com.cc.image.impl.DefaultImageLoadHandler;
-import com.cc.tool.manager.ListenerManager;
+import com.cc.cache.image.CubeImageView;
+import com.cc.cache.image.ImageLoader;
+import com.cc.cache.image.ImageLoaderFactory;
+import com.cc.cache.image.ImageTask;
+import com.cc.cache.image.impl.DefaultImageLoadHandler;
+import com.cc.tool.help.Images;
 import com.cc.tool.manager.NetworkStatusManager;
 import com.cc.viewmodel.Listener.MeListener;
 
-public class MainActivity extends FragmentActivity implements MeListener{
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends FragmentActivity implements MeListener {
     private final static String TAG = "MainActivity";
     private CubeImageView mCubeImageView;
     private String mUrl = "http://cube-sdk.liaohuqiu.net/assets/img/qrcode.png";
+    private ListView mListView;
 
     @Override
     public void onChanged(boolean user_changed) {
 
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.aty_main);
 
-        mCubeImageView=(CubeImageView)findViewById(R.id.image_rounded_image_view1);
-        DefaultImageLoadHandler defaultImageLoadHandler = new DefaultImageLoadHandler(getApplicationContext()) {
-            @Override
-            public void onLoadFinish(ImageTask imageTask, CubeImageView imageView, BitmapDrawable drawable) {
-                super.onLoadFinish(imageTask, imageView, drawable);
-                //loadRoundedImage();
-            }
-        };
-        ImageLoader imageLoaderDefault = ImageLoaderFactory.create(getApplicationContext(), defaultImageLoadHandler);
-        mCubeImageView.loadImage(imageLoaderDefault, mUrl);
+        ImageLoader loader = ImageLoaderFactory.create(this);
+        ((DefaultImageLoadHandler) loader.getImageLoadHandler()).setImageRounded(true, 25);
+
+
+        mListView = (ListView) findViewById(R.id.load_small_image_list_view);
+        ListViewDataAdapter<String> listadapter = new ListViewDataAdapter<String>();
+        listadapter.setViewHolderClass(this, StringSmallImageViewHolder.class, loader);
+        listadapter.getDataList().addAll(Images.getImages());
+        mListView.setAdapter(listadapter);
+        listadapter.notifyDataSetChanged();
+
 
     }
 

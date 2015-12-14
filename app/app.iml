@@ -93,8 +93,10 @@
     <orderEntry type="library" exported="" name="clog-1.0.2-sources" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="baidumapapi_v3_5_0" level="project" />
+    <orderEntry type="library" exported="" name="test" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="support-v4-21.0.3" level="project" />
+    <orderEntry type="library" exported="" name="clog" level="project" />
     <orderEntry type="library" exported="" name="clog-1.0.2" level="project" />
     <orderEntry type="library" exported="" name="1_clog-1.0.2" level="project" />
     <orderEntry type="library" exported="" name="umeng_sdk" level="project" />

@@ -5,8 +5,8 @@ import android.support.v4.util.LruCache;
 import android.text.TextUtils;
 
 import com.cc.cloud.util.JsonData;
-import com.cc.concurrent.SimpleExecutor;
-import com.cc.concurrent.SimpleTask;
+import com.cc.cache.concurrent.SimpleExecutor;
+import com.cc.cache.concurrent.SimpleTask;
 import com.cc.tool.CCDebug;
 
 
