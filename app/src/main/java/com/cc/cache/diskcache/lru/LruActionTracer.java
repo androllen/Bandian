@@ -21,7 +21,6 @@ import com.cc.cache.diskcache.DiskCache;
 import com.cc.cache.diskcache.FileUtils;
 import com.cc.cache.hash.SimpleHashSet;
 
-
 import java.io.BufferedInputStream;
 import java.io.BufferedWriter;
 import java.io.EOFException;

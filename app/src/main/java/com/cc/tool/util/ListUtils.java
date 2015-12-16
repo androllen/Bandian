@@ -1,8 +1,9 @@
 package com.cc.tool.util;
-import java.util.ArrayList;
-import java.util.List;
 
 import android.text.TextUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 public class ListUtils {
 
     /** default join separator **/

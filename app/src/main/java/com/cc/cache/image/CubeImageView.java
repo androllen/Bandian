@@ -12,6 +12,8 @@ import android.widget.ImageView;
 
 import com.cc.cache.image.drawable.RecyclingBitmapDrawable;
 
+import in.srain.cube.util.CLog;
+
 /**
  * Sub-class of ImageView which:
  * <ul>
@@ -24,7 +26,7 @@ import com.cc.cache.image.drawable.RecyclingBitmapDrawable;
  * <a href="http://developer.android.com/training/displaying-bitmaps/index.html">Displaying Bitmaps Efficiently</a>.
  */
 public class CubeImageView extends ImageView {
-
+    private static final String TAG = "CubeImageView";
     private ImageLoader mImageLoader;
 
     private ImageTask mImageTask;
@@ -170,6 +172,7 @@ public class CubeImageView extends ImageView {
             return;
         }
         tryLoadImage();
+        CLog.d(TAG, "loadImage ");
     }
 
     public void loadImage(ImageLoader imageLoader, String url, int specifiedWidth, int specifiedHeight, ImageReuseInfo imageReuseInfo) {
@@ -181,6 +184,7 @@ public class CubeImageView extends ImageView {
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
         tryLoadImage();
+        CLog.d(TAG, "onLayout ");
     }
 
     private void tryLoadImage() {
@@ -197,8 +201,11 @@ public class CubeImageView extends ImageView {
         // if the view's bounds aren't known yet, and this is not a wrap-content/wrap-content
         // view, hold off on loading the image.
         if (width == 0 && height == 0 && !isFullyWrapContent) {
+            CLog.d(TAG, "tryLoadImage loading the image");
             return;
         }
+
+        CLog.d(TAG, "tryLoadImage loaded the image");
 
         mRequest.setLayoutSize(width, height);
 

@@ -1,9 +1,5 @@
 package com.cc.component.group;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -14,6 +10,9 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
 import com.cc.viewmodel.Listener.OnCheckedChangeListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by androllen on 2015/8/24.

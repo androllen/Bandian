@@ -1,12 +1,5 @@
 package com.cc.tool.manager;
 
-import android.app.Activity;
-
-import com.cc.tool.BaseListener;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by androllen on 15/11/23.
  */

@@ -1,22 +1,19 @@
 package com.cc.component.button;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.cc.bandian.R;
 import com.cc.model.BasicItem;
 import com.cc.model.IListItem;
 import com.cc.model.ViewItem;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UITableView extends LinearLayout {
 

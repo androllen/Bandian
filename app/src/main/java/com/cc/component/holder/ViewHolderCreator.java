@@ -1,6 +1,5 @@
 package com.cc.component.holder;
 
-public abstract interface ViewHolderCreator<ItemDataType>
-{
-  public abstract ViewHolderBase<ItemDataType> createViewHolder(int paramInt);
+public interface ViewHolderCreator<ItemDataType> {
+    ViewHolderBase<ItemDataType> createViewHolder(int paramInt);
 }

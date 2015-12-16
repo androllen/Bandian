@@ -2,10 +2,10 @@ package com.cc.view;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

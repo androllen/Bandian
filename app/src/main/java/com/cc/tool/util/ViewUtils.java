@@ -1,9 +1,5 @@
 package com.cc.tool.util;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -15,6 +11,10 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ViewUtils {
 

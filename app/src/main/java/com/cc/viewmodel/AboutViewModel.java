@@ -1,14 +1,12 @@
 package com.cc.viewmodel;
 
 import android.content.Context;
-import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 
 import com.cc.bandian.R;
 import com.cc.cloud.BaseRequest;
 import com.cc.cloud.service.CCUniverseService;
-import com.cc.cloud.util.FeedbackReq;
 import com.cc.cloud.util.FeedbackResp;
 import com.cc.view.AboutActivity;
 import com.cc.viewmodel.Listener.ServiceListener;

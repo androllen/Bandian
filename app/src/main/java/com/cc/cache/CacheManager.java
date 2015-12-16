@@ -4,11 +4,10 @@ import android.content.Context;
 import android.support.v4.util.LruCache;
 import android.text.TextUtils;
 
-import com.cc.cloud.util.JsonData;
 import com.cc.cache.concurrent.SimpleExecutor;
 import com.cc.cache.concurrent.SimpleTask;
+import com.cc.cloud.util.JsonData;
 import com.cc.tool.CCDebug;
-
 
 import java.io.IOException;
 

@@ -1,6 +1,7 @@
 package com.cc.deserializer;
 
 import com.cc.model.BaseModel;
+
 import java.util.List;
 
 /**

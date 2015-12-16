@@ -4,8 +4,17 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.cc.cache.DiskFileUtils;
-import com.cc.cache.image.iface.*;
-import com.cc.cache.image.impl.*;
+import com.cc.cache.image.iface.ImageDownloader;
+import com.cc.cache.image.iface.ImageLoadHandler;
+import com.cc.cache.image.iface.ImageMemoryCache;
+import com.cc.cache.image.iface.ImageReSizer;
+import com.cc.cache.image.iface.ImageTaskExecutor;
+import com.cc.cache.image.iface.NameGenerator;
+import com.cc.cache.image.impl.DefaultImageLoadHandler;
+import com.cc.cache.image.impl.DefaultImageReSizer;
+import com.cc.cache.image.impl.DefaultImageTaskExecutor;
+import com.cc.cache.image.impl.DefaultMemoryCache;
+import com.cc.cache.image.impl.DefaultNameGenerator;
 
 /**
  * Create an {@link ImageLoader}.

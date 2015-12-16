@@ -1,12 +1,11 @@
 package com.cc.model;
 
-import java.util.Date;
-import java.util.Locale;
-
-
 import android.graphics.drawable.Drawable;
 
 import com.cc.tool.res.Colors;
+
+import java.util.Date;
+import java.util.Locale;
 
 
 public class Item implements java.io.Serializable {

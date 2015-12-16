@@ -3,7 +3,6 @@ package com.cc.cache.concurrent;
 import android.annotation.TargetApi;
 import android.os.Build;
 
-
 import com.cc.tool.util.Version;
 
 import java.util.concurrent.BlockingQueue;

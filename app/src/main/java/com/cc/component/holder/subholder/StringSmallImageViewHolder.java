@@ -1,13 +1,13 @@
-package com.cc.adapter.viewholders;
+package com.cc.component.holder.subholder;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.cc.bandian.R;
-import com.cc.component.holder.ViewHolderBase;
 import com.cc.cache.image.CubeImageView;
 import com.cc.cache.image.ImageLoader;
+import com.cc.component.holder.ViewHolderBase;
 import com.cc.tool.help.ImageSize;
 
 

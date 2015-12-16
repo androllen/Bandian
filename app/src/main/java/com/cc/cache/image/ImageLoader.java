@@ -6,9 +6,12 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 
 import com.cc.cache.concurrent.SimpleTask;
-import com.cc.cache.image.iface.*;
+import com.cc.cache.image.iface.ImageDownloader;
+import com.cc.cache.image.iface.ImageLoadHandler;
+import com.cc.cache.image.iface.ImageLoadProgressHandler;
+import com.cc.cache.image.iface.ImageReSizer;
+import com.cc.cache.image.iface.ImageTaskExecutor;
 import com.cc.tool.CCDebug;
-
 
 import java.util.Iterator;
 import java.util.Map.Entry;

@@ -1,8 +1,8 @@
 package com.cc.view;
 
 import android.app.Activity;
-import android.os.Message;
 import android.os.Bundle;
+import android.os.Message;
 
 import com.cc.bandian.R;
 import com.cc.tool.manager.NetworkStatusManager;

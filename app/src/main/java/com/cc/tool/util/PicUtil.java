@@ -1,28 +1,28 @@
 package com.cc.tool.util;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
+import android.graphics.Bitmap.Config;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff.Mode;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.text.TextUtils;
+
+import com.cc.bandian.R;
+import com.cc.tool.Const_def;
+import com.cc.tool.help.SharedHelper;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import com.cc.bandian.R;
-import com.cc.tool.Const_def;
-import com.cc.tool.help.SharedHelper;
-
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.Bitmap.CompressFormat;
-import android.graphics.Bitmap.Config;
-import android.graphics.PorterDuff.Mode;
-import android.text.TextUtils;
 
 import in.srain.cube.util.CLog;
 

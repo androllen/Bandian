@@ -11,7 +11,6 @@ import com.cc.cache.image.iface.ImageDownloader;
 import com.cc.cache.image.impl.SimpleDownloader;
 import com.cc.tool.CCDebug;
 
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

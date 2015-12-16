@@ -1,25 +1,19 @@
 package com.cc.view;
 
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v4.app.FragmentActivity;
 import android.widget.ListView;
 
 import com.cc.adapter.ListViewDataAdapter;
-import com.cc.adapter.viewholders.StringSmallImageViewHolder;
 import com.cc.bandian.R;
 import com.cc.cache.image.CubeImageView;
 import com.cc.cache.image.ImageLoader;
 import com.cc.cache.image.ImageLoaderFactory;
-import com.cc.cache.image.ImageTask;
 import com.cc.cache.image.impl.DefaultImageLoadHandler;
+import com.cc.component.holder.subholder.StringSmallImageViewHolder;
 import com.cc.tool.help.Images;
 import com.cc.tool.manager.NetworkStatusManager;
 import com.cc.viewmodel.Listener.MeListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends FragmentActivity implements MeListener {
     private final static String TAG = "MainActivity";
