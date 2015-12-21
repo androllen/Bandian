@@ -15,6 +15,7 @@ public class DisplayUtils {
     public static int SCREEN_WIDTH_PIXELS;
     public static int SCREEN_HEIGHT_PIXELS;
     public static float SCREEN_DENSITY;
+    public static float SCREEN_SCALEDDENSITY;
     public static int SCREEN_WIDTH_DP;
     public static int SCREEN_HEIGHT_DP;
     private static boolean sInitialed;
@@ -31,6 +32,7 @@ public class DisplayUtils {
             SCREEN_WIDTH_PIXELS = dm.widthPixels;
             SCREEN_HEIGHT_PIXELS = dm.heightPixels;
             SCREEN_DENSITY = dm.density;
+            SCREEN_SCALEDDENSITY=dm.scaledDensity;
             SCREEN_WIDTH_DP = (int)((float)SCREEN_WIDTH_PIXELS / dm.density);
             SCREEN_HEIGHT_DP = (int)((float)SCREEN_HEIGHT_PIXELS / dm.density);
 
@@ -39,8 +41,14 @@ public class DisplayUtils {
     }
 
     public static int dp2px(float dp) {
+        //final float scale = mContext.getResources().getDisplayMetrics().density;
         float scale = SCREEN_DENSITY;
         return (int)(dp * scale + 0.5F);
+    }
+
+    public static int sp2px(float sp) {
+        final float scale = SCREEN_SCALEDDENSITY;
+        return (int) (sp * scale + 0.5f);
     }
 
     public static int designedDP2px(float designedDp) {

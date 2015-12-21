@@ -1,4 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="bg_img">#b300ffff</color>
+    <color name="dark_text">#FFFF0000</color>
+    <color name="light_grey">#CCCCCC</color>
+    <color name="grey">#AAAAAA</color>
+    <color name="green">#7eeb36</color>
+    <color name="red">#d70707</color>
+    <color name="yellow">#ffff00</color>
+    <color name="blue">#0000ff</color>
+    <color name="white">#ffffff</color>
+    <color name="divider_color">#DDCCCCCC</color>
+
+    <drawable name="gray">#FF888888</drawable>
+    <drawable name="white">#FFffffff</drawable>
+
+    <!-- LIST BORDER COLOR -->
+    <color name="rounded_container_border">#ffb7babb</color>
+    <!-- ITEM BACKGROUND COLOR - STATE - DEFAULT -->
+    <color name="base_start_color_default">#FFFFFF</color>
+    <color name="base_end_color_default">#FFFFFF</color>
+
+    <!-- ITEM BACKGROUND COLOR - STATE - PRESSED -->
+    <color name="base_start_color_pressed">#ff3590c4</color>
+    <color name="base_end_color_pressed">#ff2570ba</color>
+
+    <!-- ITEM TEXT COLORS - STATES - PRESSED AND DEFAULT -->
+    <color name="text_color_default">#000000</color>
+    <color name="text_color_pressed">#ffffff</color>
+    <color name="transparent_mask_background">#00000000</color>
+    <color name="transparent_background">#90000000</color>
+    <drawable name="tsp_bg_blue">#500000ff</drawable>
+    <drawable name="tsp_bg_red">#50d70707</drawable>
+    <drawable name="tsp_bg_green">#507eeb36</drawable>
+    <color name="bg_color_common">#F2F2F2</color>
 </resources>

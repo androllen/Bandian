@@ -2,6 +2,7 @@ package com.cc.view;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
 import android.widget.ListView;
 
 import com.cc.adapter.ListViewDataAdapter;
@@ -10,6 +11,7 @@ import com.cc.cache.image.CubeImageView;
 import com.cc.cache.image.ImageLoader;
 import com.cc.cache.image.ImageLoaderFactory;
 import com.cc.cache.image.impl.DefaultImageLoadHandler;
+import com.cc.component.button.impl.UITabView;
 import com.cc.component.holder.subholder.StringSmallImageViewHolder;
 import com.cc.tool.help.Images;
 import com.cc.tool.manager.NetworkStatusManager;
@@ -26,23 +28,25 @@ public class MainActivity extends FragmentActivity implements MeListener {
 
     }
 
-
+    private UITabView mTabLayout_1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.aty_main);
 
-        ImageLoader loader = ImageLoaderFactory.create(this);
-        ((DefaultImageLoadHandler) loader.getImageLoadHandler()).setImageRounded(true, 25);
+//        ImageLoader loader = ImageLoaderFactory.create(this);
+//        ((DefaultImageLoadHandler) loader.getImageLoadHandler()).setImageRounded(true, 25);
+//
+//
+//        mListView = (ListView) findViewById(R.id.load_small_image_list_view);
+//        ListViewDataAdapter<String> listadapter = new ListViewDataAdapter<String>();
+//        listadapter.setViewHolderClass(this, StringSmallImageViewHolder.class, loader);
+//        listadapter.getDataList().addAll(Images.getImages());
+//        mListView.setAdapter(listadapter);
+//        listadapter.notifyDataSetChanged();
 
-
-        mListView = (ListView) findViewById(R.id.load_small_image_list_view);
-        ListViewDataAdapter<String> listadapter = new ListViewDataAdapter<String>();
-        listadapter.setViewHolderClass(this, StringSmallImageViewHolder.class, loader);
-        listadapter.getDataList().addAll(Images.getImages());
-        mListView.setAdapter(listadapter);
-        listadapter.notifyDataSetChanged();
-
+        mTabLayout_1 = (UITabView)findViewById(R.id.tl_1);
+        mTabLayout_1.loading();
 
     }
 
@@ -54,6 +58,7 @@ public class MainActivity extends FragmentActivity implements MeListener {
     @Override
     protected void onResume() {
         super.onResume();
+
     }
 
     @Override
