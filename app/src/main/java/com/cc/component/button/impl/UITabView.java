@@ -56,7 +56,7 @@ public class UITabView extends BaseTabLayout {
         mIndicatorMarginTop = ta.getDimension(R.styleable.UITabView_tl_indicator_margin_top, DisplayUtils.dp2px(mIndicatorStyle == STYLE_BLOCK ? 7 : 0));
         mIndicatorMarginRight = ta.getDimension(R.styleable.UITabView_tl_indicator_margin_right, DisplayUtils.dp2px(0));
         mIndicatorMarginBottom = ta.getDimension(R.styleable.UITabView_tl_indicator_margin_bottom, DisplayUtils.dp2px(mIndicatorStyle == STYLE_BLOCK ? 7 : 0));
-        mIndicatorAnimEnable = ta.getBoolean(R.styleable.UITabView_tl_indicator_anim_enable, false);
+        mIndicatorAnimEnable = ta.getBoolean(R.styleable.UITabView_tl_indicator_anim_enable, true);
         mIndicatorBounceEnable = ta.getBoolean(R.styleable.UITabView_tl_indicator_bounce_enable, true);
         mIndicatorAnimDuration = ta.getInt(R.styleable.UITabView_tl_indicator_anim_duration, -1);
         mIndicatorGravity = ta.getInt(R.styleable.UITabView_tl_indicator_gravity, Gravity.BOTTOM);
@@ -89,9 +89,9 @@ public class UITabView extends BaseTabLayout {
     }
 
     @Override
-    public LinearLayout createView(LayoutInflater paramLayoutInflater) {
-        LinearLayout mMainContainer = (LinearLayout) paramLayoutInflater.inflate(
-                R.layout.ctl_cpt_list_container, null);
+    public LinearLayout createView(Context context) {
+        LinearLayout mMainContainer = new LinearLayout(context);
+        addView(mMainContainer);
 
         return mMainContainer;
     }

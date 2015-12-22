@@ -1,6 +1,6 @@
 package com.cc.component.button;
 
-import android.animation.ValueAnimator;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -8,12 +8,9 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.drawable.GradientDrawable;
-import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
@@ -22,20 +19,19 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.cc.bandian.R;
-import com.cc.component.button.iface.ClickItemListener;
 import com.cc.component.tv.iface.OnTabSelectListener;
-import com.cc.model.BasicItem;
 import com.cc.model.IListItem;
-import com.cc.model.IndicatorPoint;
-import com.cc.model.ViewItem;
+import com.nineoldandroids.animation.TypeEvaluator;
+import com.nineoldandroids.animation.ValueAnimator;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Created by androllen on 15/12/17.
  */
-public abstract class BaseTabLayout extends BaseViewGroup {
+public abstract class BaseTabLayout extends BaseViewGroup implements ValueAnimator.AnimatorUpdateListener{
 
     private static final String TAG = "BaseTabLayout";
 
@@ -52,7 +48,6 @@ public abstract class BaseTabLayout extends BaseViewGroup {
     private Path mTrianglePath = new Path();
 
     public boolean mTextBold;
-    public boolean mTextAllCaps;
 
     /**
      * icon
@@ -63,7 +58,7 @@ public abstract class BaseTabLayout extends BaseViewGroup {
     public float mIconHeight;
     public float mIconMargin;
 
-    public abstract LinearLayout createView(LayoutInflater paramLayoutInflater);
+    public abstract LinearLayout createView(Context context);
     public abstract void obtainAttributes(Context context, AttributeSet attrs);
     public abstract List<IListItem> getBasicItems();
 
@@ -72,8 +67,7 @@ public abstract class BaseTabLayout extends BaseViewGroup {
     public static final int STYLE_BLOCK = 0x02;
 
     public int mIndicatorStyle = STYLE_NORMAL;
-    private IndicatorPoint mCurrentP = new IndicatorPoint();
-    private IndicatorPoint mLastP = new IndicatorPoint();
+
     /**
      * indicator
      */
@@ -118,6 +112,8 @@ public abstract class BaseTabLayout extends BaseViewGroup {
     public int mDividerColor;
     public float mDividerWidth;
     public float mDividerPadding;
+    private ValueAnimator mValueAnimator;
+    private OvershootInterpolator mInterpolator = new OvershootInterpolator(1.5f);
 
     private int mHeight;
     public BaseTabLayout(Context context) {
@@ -147,18 +143,20 @@ public abstract class BaseTabLayout extends BaseViewGroup {
             a.recycle();
         }
 
+        mValueAnimator=ValueAnimator.ofObject(new PointEvaluator(),mLastP,mCurrentP);
+        mValueAnimator.addUpdateListener(this);
 
     }
 
+
     public void loading(){
-        mTabsContainer = new LinearLayout(mContext);
-        addView(mTabsContainer);
+        mTabsContainer =createView(mContext);
         mTabEntitys = getBasicItems();
 
         notifyDataSetChanged();
     }
     /** 更新数据 */
-    public void notifyDataSetChanged() {
+    private void notifyDataSetChanged() {
         mTabsContainer.removeAllViews();
         this.mTabCount = mTabEntitys.size();
         View tabView;
@@ -221,10 +219,6 @@ public abstract class BaseTabLayout extends BaseViewGroup {
             TextView tv_tab_title = (TextView) tabView.findViewById(R.id.tv_tab_title);
             tv_tab_title.setTextColor(i == mCurrentTab ? mTextSelectColor : mTextUnselectColor);
             tv_tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextsize);
-//            tv_tab_title.setPadding((int) mTabPadding, 0, (int) mTabPadding, 0);
-            if (mTextAllCaps) {
-                tv_tab_title.setText(tv_tab_title.getText().toString().toUpperCase());
-            }
 
             if (mTextBold) {
                 tv_tab_title.getPaint().setFakeBoldText(mTextBold);
@@ -279,6 +273,36 @@ public abstract class BaseTabLayout extends BaseViewGroup {
 //        Log.d("AAA", "mLastP--->" + mLastP.left + "&" + mLastP.right);
 //        Log.d("AAA", "mCurrentP--->" + mCurrentP.left + "&" + mCurrentP.right);
         if (mLastP.left == mCurrentP.left && mLastP.right == mCurrentP.right) {
+            invalidate();
+        } else {
+            mValueAnimator.setObjectValues(mLastP, mCurrentP);
+            if (mIndicatorBounceEnable) {
+                mValueAnimator.setInterpolator(mInterpolator);
+            }
+
+            if (mIndicatorAnimDuration < 0) {
+                mIndicatorAnimDuration = mIndicatorBounceEnable ? 500 : 250;
+            }
+            mValueAnimator.setDuration(mIndicatorAnimDuration);
+            mValueAnimator.start();
+        }
+    }
+
+
+    @Override
+    public void onAnimationUpdate(ValueAnimator animation) {
+        View currentTabView = mTabsContainer.getChildAt(this.mCurrentTab);
+        IndicatorPoint p = (IndicatorPoint) animation.getAnimatedValue();
+        mIndicatorRect.left = (int) p.left;
+        mIndicatorRect.right = (int) p.right;
+
+        if (mIndicatorWidth < 0) {   //indicatorWidth小于0时,原jpardogo's PagerSlidingTabStrip
+
+        } else {//indicatorWidth大于0时,圆角矩形以及三角形
+            float indicatorLeft = p.left + (currentTabView.getWidth() - mIndicatorWidth) / 2;
+
+            mIndicatorRect.left = (int) indicatorLeft;
+            mIndicatorRect.right = (int) (mIndicatorRect.left + mIndicatorWidth);
         }
         invalidate();
     }
@@ -412,5 +436,26 @@ public abstract class BaseTabLayout extends BaseViewGroup {
             invalidate();
         }
     }
+    class IndicatorPoint {
+        public float left;
+        public float right;
+    }
+
+    private IndicatorPoint mCurrentP = new IndicatorPoint();
+    private IndicatorPoint mLastP = new IndicatorPoint();
+
+
+    class PointEvaluator implements TypeEvaluator<IndicatorPoint> {
+        @Override
+        public IndicatorPoint evaluate(float fraction, IndicatorPoint startValue, IndicatorPoint endValue) {
+            float left = startValue.left + fraction * (endValue.left - startValue.left);
+            float right = startValue.right + fraction * (endValue.right - startValue.right);
+            IndicatorPoint point = new IndicatorPoint();
+            point.left = left;
+            point.right = right;
+            return point;
+        }
+    }
+
 
 }
