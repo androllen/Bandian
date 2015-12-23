@@ -13,7 +13,8 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.text.TextUtils;
 
-import com.cc.bandian.R;
+
+import com.cc.tool.CLog;
 import com.cc.tool.Const_def;
 import com.cc.tool.help.SharedHelper;
 
@@ -24,7 +25,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import in.srain.cube.util.CLog;
+
 
 public class PicUtil {
     private static final String TAG = "PicUtil";
@@ -850,22 +851,22 @@ public class PicUtil {
     /* 初始化图片到sdcard */
     public static String getSnsShareImagePath(Context context) {
         String filePath = null;
-        try {
-            String cachePath = SharedHelper.getInstance().getCachePath();
-            filePath = cachePath + "pic_share_0001.jpg";
-            File file = new File(filePath);
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-
-            Bitmap pic = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_launcher);
-            FileOutputStream fos = new FileOutputStream(file);
-            pic.compress(CompressFormat.JPEG, 100, fos);
-            fos.flush();
-            fos.close();
-        } catch (Throwable t) {
-            t.printStackTrace();
-        }
+//        try {
+//            String cachePath = SharedHelper.getInstance().getCachePath();
+//            filePath = cachePath + "pic_share_0001.jpg";
+//            File file = new File(filePath);
+//            if (!file.exists()) {
+//                file.createNewFile();
+//            }
+//
+//            Bitmap pic = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_launcher);
+//            FileOutputStream fos = new FileOutputStream(file);
+//            pic.compress(CompressFormat.JPEG, 100, fos);
+//            fos.flush();
+//            fos.close();
+//        } catch (Throwable t) {
+//            t.printStackTrace();
+//        }
 
         return filePath;
     }

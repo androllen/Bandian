@@ -2,6 +2,7 @@ package com.cc.tool.util;
 
 import android.text.TextUtils;
 
+
 import com.cc.tool.Const_def;
 
 import java.io.BufferedReader;
@@ -32,12 +33,12 @@ public class FileUtils {
 
     private final static String TAG = "FileUtils";
     public final static String FILE_EXTENSION_SEPARATOR = ".";
-
     public FileUtils() {
 
     }
 
     public static File videoFile() {
+
         File sampleDir = new File(Const_def.DOWNLOAD_VIDEOPATH + File.separator);
         if (!sampleDir.exists()) {
             sampleDir.mkdirs();

@@ -2,7 +2,8 @@ package com.cc.model;
 
 import android.graphics.drawable.Drawable;
 
-import com.cc.tool.res.Colors;
+
+import com.cc.model.res.Colors;
 
 import java.util.Date;
 import java.util.Locale;

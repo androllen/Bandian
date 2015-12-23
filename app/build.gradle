@@ -26,4 +26,5 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     compile files('libs/baidumapapi_v3_5_0.jar')
     compile files('libs/umeng_sdk.jar')
+    compile project(':fragmentmgr')
 }

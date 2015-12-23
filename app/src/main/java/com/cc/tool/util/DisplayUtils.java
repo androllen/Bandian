@@ -5,7 +5,6 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.cc.tool.help.SharedHelper;
 
 /**
  * Created by androllen on 2015/8/27.
@@ -36,7 +35,6 @@ public class DisplayUtils {
             SCREEN_WIDTH_DP = (int)((float)SCREEN_WIDTH_PIXELS / dm.density);
             SCREEN_HEIGHT_DP = (int)((float)SCREEN_HEIGHT_PIXELS / dm.density);
 
-            SharedHelper.getInstance().saveWindowMeta(SCREEN_DENSITY,SCREEN_WIDTH_DP,SCREEN_HEIGHT_DP);
         }
     }
 

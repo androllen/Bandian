@@ -7,13 +7,12 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 
-import com.cc.model.Product;
-import com.cc.tool.Const_def;
-
 import java.io.File;
+import com.cc.model.Product;
+
 
 /**
- * Created by androllen on 2015/8/19.
+ * Created by androllen on 15/12/23.
  */
 public class SharedHelper {
 
@@ -30,6 +29,7 @@ public class SharedHelper {
     private final static String KEY_F_STATIC_CACHE_PATH_MYPIC = "static_cache_path_mypic";
     private static final String KEY_MARKETURL = "key_marketurl";
     private static final String KEY_ICONURL = "key_iconurl";
+    private static final String ROOTPATHDIR="bandian-dir";
 
     private final static String KEY_INSTALL_APP_TIME = "install_app_time";
 
@@ -62,7 +62,7 @@ public class SharedHelper {
 
     public void saveVersionInfo() {
         File app_dir = mContext.getFilesDir();
-        String appPath = Const_def.ROOTPATHDIR;
+        String appPath = ROOTPATHDIR;
         if (app_dir != null && app_dir.exists()) {
             String path = app_dir.getAbsolutePath();
             if (!TextUtils.isEmpty(path)) {

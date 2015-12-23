@@ -14,9 +14,11 @@ import com.cc.cache.image.impl.DefaultImageLoadHandler;
 import com.cc.cache.image.impl.DefaultImageReSizer;
 import com.cc.db.DbHelper;
 import com.cc.deserializer.DeserializerManager;
+
 import com.cc.tool.CCDebug;
 import com.cc.tool.help.SharedHelper;
 import com.cc.tool.manager.NetworkStatusManager;
+
 import com.cc.tool.util.DisplayUtils;
 import com.cc.viewmodel.InitViewModel;
 import com.cc.viewmodel.Listener.ViewModelListener;
@@ -68,6 +70,9 @@ public class MainPage extends Application implements ViewModelListener {
         DbHelper.init(this);
         //自适应初始化
         DisplayUtils.init(this);
+
+        SharedHelper.getInstance().saveWindowMeta(DisplayUtils.SCREEN_DENSITY, DisplayUtils.SCREEN_WIDTH_DP, DisplayUtils.SCREEN_HEIGHT_DP);
+
         //网络有效性
         NetworkStatusManager.init(this);
 
